@@ -1,0 +1,11 @@
+<div class="comment_<%= comment_data.comment_id %>">
+    <p><%= comment_data.name %> - <%= comment_data.posted_date %></p>
+    <p><%= comment_data.content %>
+        <% if(parseInt(USER_ID) === parseInt(comment_data.commenter_id)){ %>
+            <form action="/delete_comment" class="delete_comment_form" data-is_processing="0" method="post">
+                <input type="hidden" name="comment_id" value="<%= comment_data.comment_id %>">
+                <button type="submit">delete</button>
+            </form>
+        <% } %>
+    </p>
+</div>
